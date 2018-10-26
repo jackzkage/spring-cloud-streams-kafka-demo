@@ -1,0 +1,27 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    stream:
+      default:
+         group: consumer1
+         contentType: application/json
+
+#      dynamicDestinations: ["test-topic"]
+      kafka:
+        binder:
+          brokers: 192.168.31.219:9092
+          zkNodes: 192.168.31.219:2181
+#        bindings:
+#          input:
+#            consumer:
+#              autoCommitOffset: false
+      bindings:
+        greetings-in:
+          destination: greetings-topic
+        greetings-out:
+          destination: greetings-topic
+
+
+
